@@ -5,7 +5,13 @@
  */
 package pedroabarcaiiproyecto.bo;
 
+import java.awt.Color;
 import java.util.LinkedList;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import pedroabarcaiiproyecto.entidades.Cuadro;
 import pedroabarcaiiproyecto.entidades.Palabra;
 
@@ -17,6 +23,8 @@ public class CuadroBO {
 
     Cuadro[][] crucigrama;
     LinkedList<Palabra> palabras = new LinkedList<>();
+     int x = 4;
+     int y = 4;
 
     public CuadroBO() {
         crucigrama = new Cuadro[13][13];
@@ -60,7 +68,7 @@ public class CuadroBO {
                     System.out.println(zA + " / " + zC + " - Cant Choques :" + Choques);
                 }
             }
-            //colocar(zA, i + 1, i + 1, i + 1, "H");
+            colocar(zA, i + 1, i + 1, i + 1, "H");
         }
     }
    
@@ -117,9 +125,63 @@ public class CuadroBO {
     public Cuadro[][] getCrucigrama() {
         return crucigrama;
     }
+   
+    
+    public void pintarMatriz(JPanel pnlCrucigrama){
+        
+        pnlCrucigrama.removeAll();
+        pnlCrucigrama.setVisible(false);
+        
+        
+         for (int i = 0; i < crucigrama.length; i++) {
+            for (int j = 0; j < crucigrama[i].length; j++) {
+                Cuadro c = crucigrama[i][j];
+                
+                JLabel label = new JLabel();
+                label.setText(c.getPista() == 0 ? "" : String.valueOf(c.getPista()));
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                
+                JTextField txt = new JTextField();
+                txt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+                txt.setHorizontalAlignment(JTextField.CENTER);
+                txt.setText(c.getLetra());
+                txt.setBorder(null);
+                if (c.esNegro()) {
+                    txt.setBackground(Color.BLACK);
+                    txt.setOpaque(true);
+                    txt.setFocusable(false);
+                }
+                pnlCrucigrama.add(label, new AbsoluteConstraints(x, y, 12, 12));
+                pnlCrucigrama.add(txt, new AbsoluteConstraints(x, y, 33, 33));
+                x += 30;
+                txt.addKeyListener(new java.awt.event.KeyAdapter() {
+                    @Override
+                    public void keyTyped(java.awt.event.KeyEvent evt) {
+                        if (txt.getText().length()== 1) {
+                            evt.consume();
+                        }
+                    }
+                });
+            }
+            y += 30;
+            x = 4;
+        }
+        pnlCrucigrama.setVisible(true);
+        pnlCrucigrama.setBackground(Color.BLACK);
+        pnlCrucigrama.setOpaque(true);
+       
+    }
 
     public void setCrucigrama(Cuadro[][] crucigrama) {
         this.crucigrama = crucigrama;
+    }
+
+    public void resolver() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void verificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

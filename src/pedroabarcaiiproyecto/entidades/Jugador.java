@@ -13,7 +13,16 @@ public class Jugador {
     private String nombre;
     private String id;
     private String puntuacion;
-    
 
+    public Jugador() {
+    }
+
+    public Jugador(String nombre, String id, String puntuacion) {
+        this.nombre = nombre;
+        this.id = id;
+        this.puntuacion = puntuacion;
+    }
+    
+   
     
 }

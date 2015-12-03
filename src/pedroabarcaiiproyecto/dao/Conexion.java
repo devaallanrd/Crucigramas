@@ -22,6 +22,8 @@ private static final String PUERTO = "5432";
 private static final String BASE_DATOS = "BaseDatosTiendaMusica";
 private static final String USUARIO = "postgres";
 private static final String CONTRASENNA = "aukesafe08";
+
+
    //jdbc siempre para pg
 public static Connection conexion() throws Exception{
      Connection c = null;
