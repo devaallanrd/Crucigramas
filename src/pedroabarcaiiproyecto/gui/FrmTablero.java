@@ -106,7 +106,7 @@ public class FrmTablero extends javax.swing.JFrame {
                 JTextField txt = new JTextField();
                 txt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
                 txt.setHorizontalAlignment(JTextField.CENTER);
-                txt.setText(c.getLetra());
+                txt.setText(c.getLetra()+"");
                 txt.setBorder(null);
                 if (c.esNegro()) {
                     txt.setBackground(Color.BLACK);

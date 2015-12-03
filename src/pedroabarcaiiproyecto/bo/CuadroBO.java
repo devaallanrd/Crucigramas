@@ -105,7 +105,9 @@ public class CuadroBO {
 
             int wordC = 0;
             while (wordC != word.length()) {
-                Cuadro c = new Cuadro(pista, "", false);
+                
+                Cuadro c = new Cuadro(pista, word.charAt(wordC), false);
+                
                 if (dir.equals("H")) {
                     this.crucigrama[pY][pX + wordC] = c;
                 } else {
@@ -144,7 +146,7 @@ public class CuadroBO {
                 JTextField txt = new JTextField();
                 txt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
                 txt.setHorizontalAlignment(JTextField.CENTER);
-                txt.setText(c.getLetra());
+               // 
                 txt.setBorder(null);
                 if (c.esNegro()) {
                     txt.setBackground(Color.BLACK);
@@ -159,6 +161,12 @@ public class CuadroBO {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         if (txt.getText().length()== 1) {
                             evt.consume();
+                            char keyChar = evt.getKeyChar();
+                            System.out.println(keyChar + "/" + c.getLetra());
+                            if(keyChar==c.getLetra()){
+                                
+                                txt.setText(c.getLetra()+"");
+                            }
                         }
                     }
                 });

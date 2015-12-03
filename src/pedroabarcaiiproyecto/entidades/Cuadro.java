@@ -11,18 +11,18 @@ package pedroabarcaiiproyecto.entidades;
  */
 public class Cuadro {
     private int pista;
-    private String letra;
+    char  letra;
     private boolean negro;
 
     public Cuadro() {
          pista = 0;
-         letra = "";
+         letra = ' ';
          negro = false;
     }
     
     
 
-    public Cuadro(int Pista, String letra, boolean negro) {
+    public Cuadro(int Pista, char letra, boolean negro) {
         this.pista = Pista;
         this.letra = letra;
         this.negro = negro;
@@ -37,11 +37,11 @@ public class Cuadro {
         this.pista = numPista;
     }
 
-    public String getLetra() {
+    public char getLetra() {
         return letra;
     }
 
-    public void setLetra(String letra) {
+    public void setLetra(char letra) {
         this.letra = letra;
     }
 
