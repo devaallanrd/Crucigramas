@@ -68,7 +68,9 @@ public class CuadroBO {
                     System.out.println(zA + " / " + zC + " - Cant Choques :" + Choques);
                 }
             }
+            
             colocar(zA, i + 1, i + 1, i + 1, "H");
+            
         }
     }
    
@@ -108,7 +110,7 @@ public class CuadroBO {
                 
                 Cuadro c = new Cuadro(pista, word.charAt(wordC), false);
                 
-                if (dir.equals("H")) {
+                if (dir.equals("Across")) {
                     this.crucigrama[pY][pX + wordC] = c;
                 } else {
                     this.crucigrama[pY + wordC][pX] = c;

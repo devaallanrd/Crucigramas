@@ -5,6 +5,7 @@
  */
 package pedroabarcaiiproyecto.bo;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +19,7 @@ public class JuegoBO {
     
 Jugador jugador;
 CuadroBO cuadroBO;
+    ArrayList<String> palabras ;
 
 
 int time;
